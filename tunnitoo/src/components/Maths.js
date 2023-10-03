@@ -1,22 +1,35 @@
+import { Button } from "@mui/material"
 import React, { useState } from "react"
 
 const Maths = () => {
   const [count, setCount] = useState(0)
 
+  const changeCount = amount =>
+    setCount(previousCount => previousCount + amount)
+
   return (
     <>
-      <div>{count}</div>
-      <div className="Buttons">
-                <button onClick={() => setCount(count +1)}>+1</button>
-                <button onClick={() => setCount(count +10)}>+10</button>
-                <button onClick={() => setCount(count +100)}>+100</button>
-                <button onClick={() => setCount(count -1)}>-1</button>
-                <button onClick={() => setCount(count -10)}>-10</button>
-                <button onClick={() => setCount(count -100)}>-100</button>
-            </div>
+      <h2>{count}</h2>
+      {[-100, -10, -1, 1, 10, 100].map(number => (
+        <Button
+          key={number}
+          variant="contained"
+          onClick={() => changeCount(number)}
+          sx={{ marginBottom: 1 }}
+        >
+          Press me {number}
+        </Button>
+      ))}
+      <Button
+        variant="contained"
+        onClick={() =>
+          setTimeout(() => setCount(previousCount => previousCount + 10), 3000)
+        }
+      >
+        Press me async +10
+      </Button>
     </>
   )
-  
 }
 
 export default Maths
