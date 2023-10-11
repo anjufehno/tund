@@ -8,8 +8,8 @@ import {
 } from "react-router-dom"
 import "./index.css"
 import reportWebVitals from "./reportWebVitals"
-import App from "./frontend/App"
-import FunkyExamples from "./frontend/pages/FunkyExamples"
+import App from "./App"
+import FunkyExamples from "./pages/FunkyExamples"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
